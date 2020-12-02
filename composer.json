@@ -1,0 +1,21 @@
+{
+    "name": "dgosc/tp5-admin-rbac",
+    "description": "tp5-admin-rbac",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nginx",
+            "email": "100861690@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "dgosc\\admin\\rbac\\": "src/"
+        }
+    }
+}
