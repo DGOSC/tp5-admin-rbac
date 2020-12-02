@@ -132,7 +132,7 @@ class AdminPermission extends AdminBase
      * @return mixed
      ***************************************************************************************
      */
-    public function getPermissionByAdminId($userId)
+    public function getPermissionByAdminUserId($userId)
     {
         $prefix = $this->getConfig('prefix');
         $permission = Db::name('admin_permission')->setConnection($this->getConnection())->alias('p')
