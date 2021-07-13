@@ -430,7 +430,7 @@ class AdminRbac
             throw new Exception('参数错误');
         }
         $model = new AdminPermission($this->db);
-        $permission = $model->userPermission($id, $timeOut);
+        $permission = $model->AdminPermission($id, $timeOut);
         return $permission;
     }
 

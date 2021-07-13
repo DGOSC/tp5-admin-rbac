@@ -15,6 +15,7 @@
  ******************************************************************************/
 
 namespace dgosc\admin\rbac\model;
+use dgosc\admin\rbac\validate\AdminPermissionValidate;
 use think\Db;
 use think\Exception;
 use think\facade\Cache;
@@ -49,7 +50,7 @@ class AdminPermission extends AdminBase
         if (!empty($data)) {
             $this->data($data);
         }
-        $validate = new \dgosc\admin\rbac\validate\AdminPermission();
+        $validate = new AdminPermissionValidate();
         if (!$validate->check($this)) {
             throw new Exception($validate->getError());
         }
@@ -94,7 +95,7 @@ class AdminPermission extends AdminBase
         return true;
     }
 
-    public function adminPermission($userId, $timeOut = 3600)
+    public function AdminPermission($userId, $timeOut = 3600)
     {
         if (empty($userId)) {
             throw new Exception('参数错误');
@@ -103,7 +104,7 @@ class AdminPermission extends AdminBase
         if (!empty($permission)) {
             return $permission;
         }
-        $permission = $this->getPermissionByAdminId($userId);
+        $permission = $this->getPermissionByAdminUserId($userId);
         if (empty($permission)) {
             throw new Exception('未查询到该用户的任何权限');
         }

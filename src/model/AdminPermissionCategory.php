@@ -15,7 +15,7 @@
  ******************************************************************************/
 
 namespace dgosc\admin\rbac\model;
-
+use dgosc\admin\rbac\validate\AdminPermissionCategoryValidate;
 use think\Db;
 use think\Exception;
 
@@ -40,7 +40,7 @@ class AdminPermissionCategory extends AdminBase
         if (!empty($data)) {
             $this->data($data);
         }
-        $validate = new \dgosc\admin\rbac\validate\AdminPermissionCategory();
+        $validate = new AdminPermissionCategoryValidate();
         if (!$validate->check($this)) {
             throw new Exception($validate->getError());
         }

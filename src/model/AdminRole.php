@@ -16,7 +16,7 @@
 
 namespace dgosc\admin\rbac\model;
 
-use gmars\rbac\model\RolePermission;
+use dgosc\admin\rbac\validate\AdminRoleValidate;
 use think\Db;
 use think\Exception;
 
@@ -32,7 +32,7 @@ class AdminRole extends AdminBase
      * 邮箱: dgosc@163.com
      * 日期：2020年12月01日 16:59
      * =====================================================================================
-     * * @param string $permissionIds
+     * @param string $permissionIds
      * @param array $data
      * @return $this
      ***************************************************************************************
@@ -42,7 +42,7 @@ class AdminRole extends AdminBase
         if (!empty($data)) {
             $this->data($data);
         }
-        $validate = new \dgosc\admin\rbac\validate\AdminRole();
+        $validate = new AdminRoleValidate();
         if (!$validate->check($this)) {
             throw new Exception($validate->getError());
         }
